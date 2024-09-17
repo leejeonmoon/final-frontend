@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Streaming - IP Cam{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/streaming.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main class="streaming-section">
+        <h2>Streaming with IP cam 이름</h2>
+        
+        <div class="video-stream">
+            <video id="stream" width="640" height="360" controls>
+                <!-- 임시 비디오 URL -->
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="controls">
+            <button id="play">재생</button>
+            <button id="pause">멈춤</button>
+            <button id="rotate-left">좌회전</button>
+            <button id="rotate-right">우회전</button>
+            <button id="rotate-up">위회전</button>
+            <button id="rotate-down">아래회전</button>
+        </div>
+    </main>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

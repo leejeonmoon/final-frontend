@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Home - IP Cam{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+  <h2>Start with IP Cam이름</h2>
+
+  <div class="buttons">
+    <a href="{{ url_for('streaming') }}">Move to my video</a>
+    <a class="recorded-link" href="{{ url_for('video') }}">Recorded video</a>
+  </div>
+</div>
+{% endblock %}
