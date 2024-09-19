@@ -1,10 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}Video - IP Cam{% endblock %}
+{% block title %}Video Archive - IP Cam{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/video.css') }}">
+{% endblock %}
 
 {% block content %}
-<div class="video-content">
-    <h2>Video Content</h2>
-    <p>여기에 비디오 관련 내용이 들어갑니다.</p>
+<main class="video-archive">
+    <h2>Stored Videos</h2>
+
+    <!-- 오늘 날짜 및 날짜 선택 -->
+    <div class="date-selector">
+        <p>Today's Date: <span id="current-date"></span></p>
+        <button id="select-date-btn">Select Date</button>
+        <input type="date" id="date-picker" style="display: none;">
+    </div>
+
+    <!-- 선택된 날짜의 6시간 단위 영상 목록 -->
+    <div id="video-list" class="video-list">
+        <!-- JavaScript로 날짜 선택 시 비디오 목록이 추가됨 -->
+    </div>
+
+    <!-- 더보기 버튼 -->
+    <div id="load-more" class="load-more">
+        <button>Load More</button>
+    </div>
+</main>
+
+<!-- 비디오 상세 보기 모달 -->
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <video id="modalVideo" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/video.js') }}"></script>
 {% endblock %}
