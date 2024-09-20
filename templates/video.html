@@ -4,28 +4,24 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/video.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 {% endblock %}
 
 {% block content %}
 <main class="video-archive">
     <h2>Stored Videos</h2>
 
-    <!-- 오늘 날짜 및 날짜 선택 -->
     <div class="date-selector">
         <p>Today's Date: <span id="current-date"></span></p>
-        <button id="select-date-btn">Select Date</button>
-        <input type="date" id="date-picker" style="display: none;">
-    </div>
-
-    <!-- 선택된 날짜의 6시간 단위 영상 목록 -->
+        <button id="select-date-btn" class="btn-mint">Select Date</button>
+        <input type="text" id="date-picker" class="flatpickr-input" style="display: none;" readonly>
+    </div>   
+    
+    <!-- 선택된 날짜의 4시간 단위 영상 목록 -->
     <div id="video-list" class="video-list">
         <!-- JavaScript로 날짜 선택 시 비디오 목록이 추가됨 -->
     </div>
 
-    <!-- 더보기 버튼 -->
-    <div id="load-more" class="load-more">
-        <button>Load More</button>
-    </div>
 </main>
 
 <!-- 비디오 상세 보기 모달 -->
@@ -41,5 +37,6 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="{{ url_for('static', filename='js/video.js') }}"></script>
 {% endblock %}
