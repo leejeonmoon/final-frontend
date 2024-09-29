@@ -22,15 +22,13 @@
         </nav>
         <div class="auth-notification">
             <div class="auth">
-                <button class="signup" id="signupBtn">회원가입</button>
-                <button class="login" onclick="window.location.href='{{ url_for('login') }}'">Login</button>
+                <!-- Login/Sign Up Button -->
+                <button class="login-signup" id="loginSignupBtn">Login/Sign Up</button>
             </div>
             <div class="notification">
                 <img src="{{ url_for('static', filename='images/notification-bell.svg') }}" alt="Notification" class="bell-icon" onclick="toggleNotification()">
                 <div class="notification-list" id="notification-list">
-                    <!-- 닫기 버튼 -->
                     <span class="close-btn" onclick="toggleNotification()">&times;</span>
-                    <!-- 알림 항목 -->
                     <div class="notification-item empty-notification">
                         <p>새로운 알림이 없습니다.</p>
                     </div>
@@ -41,6 +39,19 @@
             </div>
         </div>
     </header>
+
+    <!-- Modal for Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>구글 로그인</h2>
+            <div class="google-login">
+                <button class="google-login-btn">
+                    <img src="{{ url_for('static', filename='images/google-login-image.png') }}" alt="Google Icon">
+                </button>
+            </div>
+        </div>
+    </div>
 
     {% block content %}{% endblock %}
 

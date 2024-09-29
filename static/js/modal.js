@@ -1,3 +1,14 @@
+var modal = document.getElementById('loginModal');
+var loginSignupBtn = document.getElementById('loginSignupBtn');
+
+loginSignupBtn.onclick = function() {
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";

@@ -56,8 +56,7 @@ header {
     cursor: pointer;
 }
 
-.auth .signup,
-.auth .login {
+.auth .login-signup {
     background-color: var(--action-primary);
     color: var(--colors-white);
     border-radius: 20px;
@@ -142,5 +141,73 @@ header {
 }
 
 .close-btn:hover {
+    color: #333;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; /* Set a width */
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.google-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 구글 로그인 버튼 스타일 */
+.google-login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: none; /* 테두리 제거 */
+    padding: 0; /* 여백 제거 */
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;  /* 버튼 너비 자동 설정 */
+    height: auto;  /* 버튼 높이 자동 설정 */
+}
+
+/* 구글 로그인 이미지 크기 조정 */
+.google-login-btn img {
+    width: 200px;  /* 이미지 너비 조정 */
+    height: auto; /* 이미지 높이는 자동 */
+    border: none; 
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close:hover {
     color: #333;
 }
