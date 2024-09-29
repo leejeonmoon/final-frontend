@@ -9,3 +9,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("rotate-up").addEventListener("click", () => alert("위"));
     document.getElementById("rotate-down").addEventListener("click", () => alert("아래"));
 });
+

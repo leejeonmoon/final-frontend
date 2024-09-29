@@ -1,78 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/header.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}" />
     {% block extra_css %}{% endblock %}
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <div class="logo">
-        <h1>IP CAM 이름/웹 사이트 이름</h1>
-      </div>
-      <nav>
-        <ul class="menu">
-          <li>
-            <a
-              href="{{ url_for('index') }}"
-              class="{% if page == 'home' %}active{% endif %}"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('streaming') }}"
-              class="{% if page == 'streaming' %}active{% endif %}"
-              >Streaming</a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('video') }}"
-              class="{% if page == 'video' %}active{% endif %}"
-              >Video</a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ url_for('report') }}"
-              class="{% if page == 'report' %}active{% endif %}"
-              >Report</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <div class="auth">
-        <button class="signup" id="signupBtn">회원가입</button>
-        <button class="login" onclick="window.location.href='{{ url_for('login') }}'">
-          Login
-        </button>
-      </div>
+        <div class="logo">
+            <h1>IP CAM 이름/웹 사이트 이름</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="{{ url_for('index') }}" class="{% if page == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ url_for('streaming') }}" class="{% if page == 'streaming' %}active{% endif %}">Streaming</a></li>
+                <li><a href="{{ url_for('video') }}" class="{% if page == 'video' %}active{% endif %}">Video</a></li>
+                <li><a href="{{ url_for('report') }}" class="{% if page == 'report' %}active{% endif %}">Report</a></li>
+            </ul>
+        </nav>
+        <div class="auth-notification">
+            <div class="auth">
+                <button class="signup" id="signupBtn">회원가입</button>
+                <button class="login" onclick="window.location.href='{{ url_for('login') }}'">Login</button>
+            </div>
+            <div class="notification">
+                <img src="{{ url_for('static', filename='images/notification-bell.svg') }}" alt="Notification" class="bell-icon" onclick="toggleNotification()">
+                <div class="notification-list" id="notification-list">
+                    <!-- 닫기 버튼 -->
+                    <span class="close-btn" onclick="toggleNotification()">&times;</span>
+                    <!-- 알림 항목 -->
+                    <div class="notification-item empty-notification">
+                        <p>새로운 알림이 없습니다.</p>
+                    </div>
+                    <div class="notification-item view-more">
+                        <a href="{{ url_for('report') }}">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     {% block content %}{% endblock %}
 
-    <!-- 모달 창 HTML 구조 -->
-    <div id="signupModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>회원가입</h2>
-        <form>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username"><br><br>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password"><br><br>
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
-    </div>
-
     <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
     {% block extra_js %}{% endblock %}
-  </body>
+</body>
 </html>
